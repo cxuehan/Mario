@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            border: solid 2px rosybrown;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="600px" height="600px"></canvas>
+</body>
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    var dx = 285;
+    var dy = 280;
+    var sx = [10, 58, 104, 154];
+    var sy = [10, 67, 120, 170];
+    var i = 0, j = 0;
+    var img = new Image();
+    img.src = "1.png";
+    img.onload = function(){
+        context.drawImage(img, sx[i], sy[j], 40, 50, dx, dy, 40, 50);
+    }
+
+    var x = parseInt(Math.random()*550);
+    var y = parseInt(Math.random()*550);
+    var imgh = new Image();
+    imgh.src = "2.jpg";
+    imgh.onload = function(){
+        context.drawImage(imgh, x, y);
+    }
+
+    document.onkeydown = function(event){
+        var e = event || window.event || arguments.callee.caller.arguments[0];
+        if(e.keyCode == 37){
+            context.clearRect(0, 0, 600, 600);
+            var imgh = new Image();
+            imgh.src = "2.jpg";
+            imgh.onload = function(){
+                context.drawImage(imgh, x, y);
+            }
+
+            if(dx-10 >= 0){
+                dx -= 10;
+            }
+            i = (i+1)%4;
+            var img = new Image();
+            img.src = "1.png";
+            img.onload = function(){
+                context.drawImage(img, sx[i], sy[1], 40, 50, dx, dy, 40, 50);
+            }
+            
+            if(dx<x+20 && dy-y<45 && y-dy<26){
+                x = parseInt(Math.random()*550);
+                y = parseInt(Math.random()*550);
+                context.clearRect(0, 0, 600, 600);
+                var imgh = new Image();
+                imgh.src = "2.jpg";
+                imgh.onload = function(){
+                    context.drawImage(imgh, x, y);
+                }
+
+                var img = new Image();
+                img.src = "1.png";
+                img.onload = function(){
+                    context.drawImage(img, sx[i], sy[0], 40, 50, dx, dy, 40, 50);
+                }
+            }
+        }
+        else if(e.keyCode == 38){
+            context.clearRect(0, 0, 600, 600);
+            var imgh = new Image();
+            imgh.src = "2.jpg";
+            imgh.onload = function(){
+                context.drawImage(imgh, x, y);
+            }
+
+            if(dy-10 >= 0){
+                dy -= 10;
+            }
+            i = (i+1)%4;
+            var img = new Image();
+            img.src = "1.png";
+            img.onload = function(){
+                context.drawImage(img, sx[i], sy[3], 40, 50, dx, dy, 40, 50);
+            }
+            
+            if(dy<y+25 && dx-x<20 && x-dx<30){
+                x = parseInt(Math.random()*550);
+                y = parseInt(Math.random()*550);
+                context.clearRect(0, 0, 600, 600);
+                var imgh = new Image();
+                imgh.src = "2.jpg";
+                imgh.onload = function(){
+                    context.drawImage(imgh, x, y);
+                }
+
+                var img = new Image();
+                img.src = "1.png";
+                img.onload = function(){
+                    context.drawImage(img, sx[i], sy[0], 40, 50, dx, dy, 40, 50);
+                }
+            }
+        }
+        else if(e.keyCode == 39){
+            context.clearRect(0, 0, 600, 600);
+            var imgh = new Image();
+            imgh.src = "2.jpg";
+            imgh.onload = function(){
+                context.drawImage(imgh, x, y);
+            }
+
+            if(dx+35 < 600){
+                dx += 10;
+            }
+            i = (i+1)%4;
+            var img = new Image();
+            img.src = "1.png";
+            img.onload = function(){
+                context.drawImage(img, sx[i], sy[2], 40, 50, dx, dy, 40, 50);
+            }
+            
+            if(dx+35>x && dy-y<35 && y-dy<26){
+                x = parseInt(Math.random()*550);
+                y = parseInt(Math.random()*550);
+                context.clearRect(0, 0, 600, 600);
+                var imgh = new Image();
+                imgh.src = "2.jpg";
+                imgh.onload = function(){
+                    context.drawImage(imgh, x, y);
+                }
+
+                var img = new Image();
+                img.src = "1.png";
+                img.onload = function(){
+                    context.drawImage(img, sx[i], sy[0], 40, 50, dx, dy, 40, 50);
+                }
+            }
+        }
+        else if(e.keyCode == 40){
+            context.clearRect(0, 0, 600, 600);
+            var imgh = new Image();
+            imgh.src = "2.jpg";
+            imgh.onload = function(){
+                context.drawImage(imgh, x, y);
+            }
+
+            if(dy+45<600){
+                dy += 10;
+            }
+            i = (i+1)%4;
+            var img = new Image();
+            img.src = "1.png";
+            img.onload = function(){
+                context.drawImage(img, sx[i], sy[0], 40, 50, dx, dy, 40, 50);
+            }
+            
+            if(dy+40 > y && dx-x<20 && x-dx<30){
+                x = parseInt(Math.random()*550);
+                y = parseInt(Math.random()*550);
+                context.clearRect(0, 0, 600, 600);
+                var imgh = new Image();
+                imgh.src = "2.jpg";
+                imgh.onload = function(){
+                    context.drawImage(imgh, x, y);
+                }
+
+                var img = new Image();
+                img.src = "1.png";
+                img.onload = function(){
+                    context.drawImage(img, sx[i], sy[0], 40, 50, dx, dy, 40, 50);
+                }
+            }
+        }
+    }
+</script>
+</html>
